@@ -5,11 +5,20 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no tests are implemented yet \" && exit 1"
-  },
-  "author": "",
+    "test": "mocha tests/**/*.js",
+    "coverage": "c8 mocha tests/**/*.js",
+    "test:report": "mocha tests/**/*.js --reporter mochawesome"
+  }
+  ,
+  "author": "O/S",
   "license": "MIT",
   "dependencies": {
+    "c8": "^8.0.1",
     "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
   }
 }
