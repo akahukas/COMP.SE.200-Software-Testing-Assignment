@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha tests/**/*.js",
-    "coverage": "c8 mocha tests/**/*.js --reporter mocha-lcov-reporter --reporter-options output=coverage/lcov.lcov",
+    "coverage": "c8 --reporter=lcov --reporter=text-summary npm test",
     "test:report": "mocha tests/**/*.js --reporter mochawesome"
   },
   "author": "O/S",
@@ -18,7 +18,6 @@
   "devDependencies": {
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
-    "mocha-lcov-reporter": "^1.3.0",
     "mochawesome": "^7.1.3"
   }
 }
