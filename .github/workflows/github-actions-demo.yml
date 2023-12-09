@@ -3,21 +3,20 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: ["push", "pull_request"]
 jobs:
   Test-Coveralls:
-    build:
-      name: Build
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
 
-        - name: Use Node.js 16.x
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16.x
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
 
-        - name: npm install, make test-coverage
-          run: |
-            npm install
-            make test-coverage
+      - name: npm install, make test-coverage
+        run: |
+          npm install
+          make test-coverage
 
-        - name: Coveralls
-          uses: coverallsapp/github-action@v2
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
