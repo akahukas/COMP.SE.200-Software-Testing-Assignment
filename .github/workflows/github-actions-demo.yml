@@ -22,7 +22,7 @@ jobs:
           npm run coverage
 
       - name: Convert coverage JSON to LCOV
-          run: npx lcov-result-merger 'coverage/*.json' > coverage/lcov.info
+        run: npx lcov-result-merger 'coverage/*.json' > coverage/lcov.info
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
