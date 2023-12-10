@@ -146,6 +146,10 @@ describe("filter.js should handle", () => {
     });
 
     describe("edge cases", () => {
+        it("when filtering a null array", () => {
+            expect(filter(null, () => true)).to.deep.equal([]);
+        });
+
         it("when filtering a large array", () => {
             // array with ascending values from 0 to 99999
             var largeArray = Array.from(Array(100000).keys());
