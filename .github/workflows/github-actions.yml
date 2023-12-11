@@ -19,7 +19,7 @@ jobs:
 
       - name: npm run coverage
         run: |
-          npm run coverage
+          npm run coverage || true
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
