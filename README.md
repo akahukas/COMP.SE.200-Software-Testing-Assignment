@@ -1,4 +1,8 @@
-# Student template
+# COMP.SE.200 Software Testing Assignment
+
+[![Coverage Status](https://coveralls.io/repos/github/akahukas/COMP.SE.200-Software-Testing-Assignment/badge.svg)](https://coveralls.io/github/akahukas/COMP.SE.200-Software-Testing-Assignment)
+
+#### This repository is forked from [Student Template Repository](https://github.com/otula/COMP.SE.200-2023-2024-1). This forked repository adds implemented unit tests for the selected functions of the Student Template Repository.
 
 ## Purpose of this repository
 
