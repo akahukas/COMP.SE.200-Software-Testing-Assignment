@@ -12,8 +12,7 @@
   "author": "O/S",
   "license": "MIT",
   "dependencies": {
-    "c8": "^8.0.1",
-    "dotenv": "^16.3.1"
+    "c8": "^8.0.1"
   },
   "devDependencies": {
     "chai": "^4.3.10",
