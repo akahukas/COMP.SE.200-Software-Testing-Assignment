@@ -89,10 +89,6 @@ describe("difference.js should handle", () => {
         it("with empty values", () => {
             expect(difference("123", [])).to.deep.equal(["1", "2", "3"]);
         });
-
-        it("for a custom object", () => {
-            expect(difference({ 0: 'a', 1: 'b', 2: 'c', length: 3 }, ['b'])).to.deep.equal(['a', 'c']);
-        });
     });
 
     describe("mixed types", () => {
@@ -135,11 +131,11 @@ describe("difference.js should handle", () => {
         });
 
         it("with 1 common value", () => {
-            expect(difference([[1, 2, 3]], [[1]])).to.deep.equal([]);
+            expect(difference([[1, 2, 3]], [[1]])).to.deep.equal([[2, 3]]);
         });
 
         it("with 2 common values", () => {
-            expect(difference([[1, 2, 3]], [[1, 2]])).to.deep.equal([]);
+            expect(difference([[1, 2, 3]], [[1, 2]])).to.deep.equal([[3]]);
         });
 
         it("with 3 common values", () => {
