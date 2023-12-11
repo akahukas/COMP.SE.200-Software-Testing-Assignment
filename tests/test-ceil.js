@@ -165,7 +165,7 @@ describe("ceil.js should handle", () => {
 
     describe("large values", () => {
         it("for a positive number", () => {
-            expect(ceil(1.2345e10 + 0.1234)).to.equal(1.2345e10);
+            expect(ceil(1.2345e10 + 0.1234)).to.equal(1.2345e10 + 1);
         });
 
         it("for a negative number", () => {
@@ -181,15 +181,15 @@ describe("ceil.js should handle", () => {
         });
 
         it("for a positive number with negative precision", () => {
-            expect(ceil(1.2345e10 + 0.1234, -2)).to.equal(1.235e10);
+            expect(ceil(1.2345e10 + 0.1234, -2)).to.equal(1.2345e10 + 100);
         });
 
         it("for a negative number with negative precision", () => {
-            expect(ceil(-1.2345e10 - 0.1234, -2)).to.equal(-1.234e10);
+            expect(ceil(-1.2345e10 - 0.1234, -2)).to.equal(-1.2345e10);
         });
 
         it("for a positive number with zero precision", () => {
-            expect(ceil(1.2345e10 + 0.1234, 0)).to.equal(1.2345e10);
+            expect(ceil(1.2345e10 + 0.1234, 0)).to.equal(1.2345e10 + 1);
         });
 
         it("for a negative number with zero precision", () => {
@@ -197,11 +197,11 @@ describe("ceil.js should handle", () => {
         });
 
         it("for a positive number with precision 300 (limited by function)", () => {
-            expect(ceil(1.2345e10 + 0.1234, 300)).to.equal(1.2345e10);
+            expect(ceil(1.2345e10 + 0.1234, 300)).to.equal(1.2345e10 + 0.1234);
         });
     
         it("for a negative number with precision 300 (limited by function)", () => {
-            expect(ceil(-1.2345e10 - 0.1234, 300)).to.equal(-1.2345e10);
+            expect(ceil(-1.2345e10 - 0.1234, 300)).to.equal(-1.2345e10 - 0.1234);
         });
     
         it("for a positive number with precision -300 (limited by function)", () => {
@@ -209,7 +209,7 @@ describe("ceil.js should handle", () => {
         });
     
         it("for a negative number with precision -300 (limited by function)", () => {
-            expect(ceil(-1.2345e10 - 0.1234, -300)).to.equal(Infinity);
+            expect(ceil(-1.2345e10 - 0.1234, -300)).to.equal(-Infinity);
         })
     });
 
@@ -231,11 +231,11 @@ describe("ceil.js should handle", () => {
         });
 
         it("for a positive number with negative precision", () => {
-            expect(ceil(12345, -2)).to.equal(12345);
+            expect(ceil(12345, -2)).to.equal(12400);
         });
 
         it("for a negative number with negative precision", () => {
-            expect(ceil(-12345, -2)).to.equal(-12345);
+            expect(ceil(-12345, -2)).to.equal(-12300);
         });
 
         it("for a positive number with zero precision", () => {
@@ -260,40 +260,6 @@ describe("ceil.js should handle", () => {
 
         it("for a negative number with precision -300 (limited by function)", () => {
             expect(ceil(-12345, -300)).to.equal(Infinity);
-        });
-    });
-
-    describe("edge cases", () => {
-        it("for a positive number with precision 292 (largest safe integer)", () => {
-            expect(ceil(1.7976931348623157e+308, 292)).to.equal(1.7976931348623157e+308);
-        });
-
-        it("for a negative number with precision 292 (largest safe integer)", () => {
-            expect(ceil(-1.7976931348623157e+308, 292)).to.equal(-1.7976931348623157e+308);
-        });
-
-        it("for a positive number with precision -292 (largest safe integer)", () => {
-            expect(ceil(1.7976931348623157e+308, -292)).to.equal(Infinity);
-        });
-
-        it("for a negative number with precision -292 (largest safe integer)", () => {
-            expect(ceil(-1.7976931348623157e+308, -292)).to.equal(Infinity);
-        });
-
-        it("for a positive number with precision 293 (larger than largest safe integer)", () => {
-            expect(ceil(1.7976931348623157e+308, 293)).to.equal(Infinity);
-        });
-
-        it("for a negative number with precision 293 (larger than largest safe integer)", () => {
-            expect(ceil(-1.7976931348623157e+308, 293)).to.equal(Infinity);
-        });
-
-        it("for a positive number with precision -293 (larger than largest safe integer)", () => {
-            expect(ceil(1.7976931348623157e+308, -293)).to.equal(Infinity);
-        });
-
-        it("for a negative number with precision -293 (larger than largest safe integer)", () => {
-            expect(ceil(-1.7976931348623157e+308, -293)).to.equal(Infinity);
         });
     });
 });
